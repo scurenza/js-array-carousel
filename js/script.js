@@ -25,6 +25,7 @@ const albumImages = [
 
 // Elementi HTML
 const itemsContainer = document.querySelector(".items-container");
+const miniItemsContainer = document.querySelector(".mini-items-container");
 
 const up = document.querySelector(".up");
 const down = document.querySelector(".down");
@@ -41,13 +42,21 @@ for (let i = 0; i < albumImages.length; i++) {
     console.log(element);
     itemsContainer.innerHTML += element;
     console.log(itemsContainer);
+
+    const miniElement = `          <div class="card">
+    <img src="img/0${i + 1}.jpg" alt="" />
+  </div>`
+    
+    miniItemsContainer.innerHTML += miniElement;
 }
 
 // Settare condizione iniziale
 const items = document.getElementsByClassName("item");
 let sliderImage = 0;
 items[sliderImage].classList.add("active");
-miniImage[0].classList.add("active-border");
+
+const miniItems = document.getElementsByClassName("card");
+miniItems[sliderImage].classList.add("active-border");
 
 // down.classList.add("hidden");
 
@@ -59,7 +68,7 @@ up.addEventListener("click", function() {
         items[sliderImage].classList.remove("active");
 
         // nascondo effetto hover prima immagine
-        miniImage[sliderImage].classList.remove("active-border");
+        miniItems[sliderImage].classList.remove("active-border");
 
         // Incremento il contatore
         sliderImage++;
@@ -68,7 +77,7 @@ up.addEventListener("click", function() {
         items[sliderImage].classList.add("active");
 
         // Mostro hover sull'elemento successivo
-        miniImage[sliderImage].classList.add("active-border");
+        miniItems[sliderImage].classList.add("active-border");
 
 
     } else {
@@ -76,7 +85,7 @@ up.addEventListener("click", function() {
         items[sliderImage].classList.remove("active");
 
         // Nascondo hover sulla prima immagine
-        miniImage[sliderImage].classList.remove("active-border");
+        miniItems[sliderImage].classList.remove("active-border");
 
         // Riparto da zero
         sliderImage = 0;
@@ -85,7 +94,7 @@ up.addEventListener("click", function() {
         items[sliderImage].classList.add("active");
 
         // Mostro hover sull'elemento successivo
-        miniImage[sliderImage].classList.add("active-border");
+        miniItems[sliderImage].classList.add("active-border");
     }
        
 });
@@ -98,7 +107,7 @@ down.addEventListener("click", function() {
         items[sliderImage].classList.remove("active");
 
         // Nascondo hover sulla prima immagine
-        miniImage[sliderImage].classList.remove("active-border");
+        miniItems[sliderImage].classList.remove("active-border");
 
         // Decremento il contatore
         sliderImage--;
@@ -107,7 +116,7 @@ down.addEventListener("click", function() {
         items[sliderImage].classList.add("active");
 
         // Mostro hover sull'elemento successivo
-        miniImage[sliderImage].classList.add("active-border");
+        miniItems[sliderImage].classList.add("active-border");
 
 
     } else {
@@ -115,7 +124,7 @@ down.addEventListener("click", function() {
         items[sliderImage].classList.remove("active");
 
         // Nascondo hover sulla prima immagine
-        miniImage[sliderImage].classList.remove("active-border");
+        miniItems[sliderImage].classList.remove("active-border");
 
         // Riparto da zero
         sliderImage = (albumImages.length - 1);
@@ -124,6 +133,6 @@ down.addEventListener("click", function() {
         items[sliderImage].classList.add("active");
 
         // Mostro hover sull'elemento successivo
-        miniImage[sliderImage].classList.add("active-border");
+        miniItems[sliderImage].classList.add("active-border");
     }
 });
