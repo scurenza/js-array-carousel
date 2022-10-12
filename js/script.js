@@ -29,6 +29,9 @@ const itemsContainer = document.querySelector(".items-container");
 const up = document.querySelector(".up");
 const down = document.querySelector(".down");
 
+const miniImage = document.querySelectorAll(".card");
+console.log(miniImage);
+
 // Ciclo per creare gli elementi
 for (let i = 0; i < albumImages.length; i++) {
     const element = `<div class="item">
@@ -44,6 +47,7 @@ for (let i = 0; i < albumImages.length; i++) {
 const items = document.getElementsByClassName("item");
 let sliderImage = 0;
 items[sliderImage].classList.add("active");
+miniImage[0].classList.add("active-border");
 
 // down.classList.add("hidden");
 
@@ -54,32 +58,34 @@ up.addEventListener("click", function() {
         // Nascondo la prima immagine
         items[sliderImage].classList.remove("active");
 
-        // Mostro bottone down
-        // down.classList.remove("hidden");
+        // nascondo effetto hover prima immagine
+        miniImage[sliderImage].classList.remove("active-border");
 
         // Incremento il contatore
         sliderImage++;
 
         // Mostro l'immagine successiva
         items[sliderImage].classList.add("active");
+
+        // Mostro hover sull'elemento successivo
+        miniImage[sliderImage].classList.add("active-border");
 
 
     } else {
         // Nascondo la prima immagine
         items[sliderImage].classList.remove("active");
 
-        // Mostro bottone down
-        // down.classList.remove("hidden");
+        // Nascondo hover sulla prima immagine
+        miniImage[sliderImage].classList.remove("active-border");
 
         // Riparto da zero
         sliderImage = 0;
 
         // Mostro l'immagine successiva
         items[sliderImage].classList.add("active");
-        
-        // Incremento il contatore
-        sliderImage++;
 
+        // Mostro hover sull'elemento successivo
+        miniImage[sliderImage].classList.add("active-border");
     }
        
 });
@@ -91,8 +97,8 @@ down.addEventListener("click", function() {
         // Nascondo la prima immagine
         items[sliderImage].classList.remove("active");
 
-        // Mostro bottone down
-        // down.classList.remove("hidden");
+        // Nascondo hover sulla prima immagine
+        miniImage[sliderImage].classList.remove("active-border");
 
         // Decremento il contatore
         sliderImage--;
@@ -100,6 +106,24 @@ down.addEventListener("click", function() {
         // Mostro l'immagine successiva
         items[sliderImage].classList.add("active");
 
+        // Mostro hover sull'elemento successivo
+        miniImage[sliderImage].classList.add("active-border");
 
+
+    } else {
+        // Nascondo la prima immagine
+        items[sliderImage].classList.remove("active");
+
+        // Nascondo hover sulla prima immagine
+        miniImage[sliderImage].classList.remove("active-border");
+
+        // Riparto da zero
+        sliderImage = (albumImages.length - 1);
+
+        // Mostro l'immagine successiva
+        items[sliderImage].classList.add("active");
+
+        // Mostro hover sull'elemento successivo
+        miniImage[sliderImage].classList.add("active-border");
     }
 });

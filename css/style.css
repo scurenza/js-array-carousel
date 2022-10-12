@@ -12,11 +12,13 @@
 
 .slider{
     width: 60vw;
-    background-color: aqua;
+    /* background-color: aqua; */
     position: absolute;
     top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    left: calc(50% - 7.5vw);
+    transform: translate(-50%, -50% );
+
+    display: flex;
 }
 
 .item {
@@ -29,8 +31,8 @@
     display: block;
 }
 
-.item img{
-    width: 100%;
+.item  img{
+    width: 60vw;
     height: 100%;
     object-fit: cover;
 }
@@ -58,4 +60,28 @@
 
 .hidden{
     display: none;
+}
+
+.mini-items-container{
+    display: flex;
+    flex-direction: column;
+    height: 60vh;
+}
+
+.card{
+    height: calc(60vh / 5);
+    
+}
+
+.card img{
+    width: 15vw;
+    object-fit: cover;
+    height: calc(60vh / 5);
+    opacity: 0.5;
+    border: 2px solid grey;
+}
+
+.active-border img{
+    opacity: 1;
+    border: 2px solid white;
 }
