@@ -65,10 +65,23 @@ up.addEventListener("click", function() {
 
 
     } else {
-       
+        // Nascondo la prima immagine
+        items[sliderImage].classList.remove("active");
 
+        // Mostro bottone down
+        // down.classList.remove("hidden");
+
+        // Riparto da zero
+        sliderImage = 0;
+
+        // Mostro l'immagine successiva
+        items[sliderImage].classList.add("active");
         
+        // Incremento il contatore
+        sliderImage++;
+
     }
+       
 });
 
 // Scendere nello slider
