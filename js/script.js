@@ -13,3 +13,25 @@ Aggiungere il **ciclo infinito** del carosello. Ovvero se è attiva la prima imm
 **BONUS 2:**
 Aggiungere la visualizzazione di tutte le thumbnails sulla destra dell’immagine grande attiva, come nello screenshot proposto. Tutte le miniature avranno un layer di opacità scura, tranne quella corrispondente all’immagine attiva, che invece avrà un bordo colorato.
 Al click delle frecce, oltre al cambio di immagine attiva, gestire il cambio di miniatura attiva. */
+
+
+const albumImages = [
+    "img/01.jpg",
+    "img/02.jpg",
+    "img/03.jpg",
+    "img/04.jpg",
+    "img/05.jpg"
+];
+
+const itemsContainer = document.querySelector("items-container");
+console.log(itemsContainer);
+
+for (let i = 0; i < albumImages.length; i++) {
+    const element = `<div class="item">
+    <img src="img/01.jpg" alt="" />
+  </div>`
+
+    console.log(element);
+    itemsContainer.innerHTML += element;
+    console.log(itemsContainer);
+}
