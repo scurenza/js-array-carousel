@@ -39,11 +39,12 @@
 .up, .down{
     position: absolute;
     left: 50%;
-    transform: translateY(-50%);
+    transform: translateX(-50%);
 }
 
 .up{
     top: 30px;
+    
 }
 
 .down{
