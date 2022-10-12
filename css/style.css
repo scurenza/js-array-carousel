@@ -1,3 +1,51 @@
-body{
-    background-color: pink;
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+
+.slider{
+    width: 60vw;
+    background-color: aqua;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.item {
+    height: 60vh;
+    background-color: gray;
+}
+
+.item img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.up i, .down i{
+    background-color: rgba(128, 128, 128, 0.9);
+    padding: .5rem;
+    border-radius: 50%;
+}
+
+.up, .down{
+    position: absolute;
+    left: 50%;
+    transform: translateY(-50%);
+}
+
+.up{
+    top: 30px;
+}
+
+.down{
+    bottom: 30px;
 }
