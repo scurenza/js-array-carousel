@@ -23,15 +23,70 @@ const albumImages = [
     "img/05.jpg"
 ];
 
-const itemsContainer = document.querySelector("items-container");
-console.log(itemsContainer);
+// Elementi HTML
+const itemsContainer = document.querySelector(".items-container");
 
+const up = document.querySelector(".up");
+const down = document.querySelector(".down");
+
+// Ciclo per creare gli elementi
 for (let i = 0; i < albumImages.length; i++) {
     const element = `<div class="item">
-    <img src="img/01.jpg" alt="" />
+    <img src="img/0${i + 1}.jpg" alt="" />
   </div>`
 
     console.log(element);
     itemsContainer.innerHTML += element;
     console.log(itemsContainer);
 }
+
+// Settare condizione iniziale
+const items = document.getElementsByClassName("item");
+let sliderImage = 0;
+items[sliderImage].classList.add("active");
+
+// down.classList.add("hidden");
+
+// Salire nello slider
+up.addEventListener("click", function() {
+    if (sliderImage < (albumImages.length - 1)){
+
+        // Nascondo la prima immagine
+        items[sliderImage].classList.remove("active");
+
+        // Mostro bottone down
+        // down.classList.remove("hidden");
+
+        // Incremento il contatore
+        sliderImage++;
+
+        // Mostro l'immagine successiva
+        items[sliderImage].classList.add("active");
+
+
+    } else {
+       
+
+        
+    }
+});
+
+// Scendere nello slider
+down.addEventListener("click", function() {
+    if (sliderImage > 0 ){
+
+        // Nascondo la prima immagine
+        items[sliderImage].classList.remove("active");
+
+        // Mostro bottone down
+        // down.classList.remove("hidden");
+
+        // Decremento il contatore
+        sliderImage--;
+
+        // Mostro l'immagine successiva
+        items[sliderImage].classList.add("active");
+
+
+    }
+});
